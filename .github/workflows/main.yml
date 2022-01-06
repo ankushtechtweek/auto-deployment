@@ -46,5 +46,5 @@ jobs:
         port: ${{ secrets.PORT_STAGING }}
         key: ${{ secrets.SSH_KEY_STAGING }}
         script: |
-          cd /var/www/__APP__/client
+          cd /var/www/__APP__/
           mkdir test
