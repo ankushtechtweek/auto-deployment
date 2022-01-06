@@ -40,4 +40,17 @@ jobs:
         port: ${{ secrets.PORT_STAGING }}
         key: ${{ secrets.SSH_KEY_STAGING }}
         script: |
-            rsync -avz . ${{ secrets.USERNAME_STAGING }}@${{ secrets.HOST_STAGING }}:/var/www/html
+           cd /var/www/__APP__
+           mv README.md /var/www/html
+     
+    - name: remove backup frontend
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST_STAGING }}
+        username: ${{ secrets.USERNAME_STAGING }}
+        port: ${{ secrets.PORT_STAGING }}
+        key: ${{ secrets.SSH_KEY_STAGING }}
+        script: |
+           cd /var/www/__APP__
+           rm -rf /var/www/__APP__/CNAME
+       
