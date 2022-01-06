@@ -41,7 +41,7 @@ jobs:
     - name: build clean frontend
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST_PRODUCTION }}
+        host: ${{ secrets.HOST_STAGING }}
         username: ${{ secrets.USERNAME_STAGING }}
         port: ${{ secrets.PORT_STAGING }}
         key: ${{ secrets.SSH_KEY_STAGING }}
